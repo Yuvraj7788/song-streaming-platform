@@ -1,23 +1,22 @@
 import { openUploadWidget } from "../../utils/CloudinaryService";
 import { cloudinary_upload_preset } from "../../config";
 
-
-const CloudinaryUpload = ({setUrl, setName}) => {
+const CloudinaryUpload = ({ setUrl, setName }) => {
   const uploadImageWidget = () => {
     let myUploadWidget = openUploadWidget(
       {
-        cloudName: "dbdzdsvyw",
+        cloudName: "dztoerhpt",
         uploadPreset: cloudinary_upload_preset,
         sources: ["local"],
       },
       function (error, result) {
         if (!error && result.event === "success") {
-            setUrl(result.info.secure_url);
-            setName(result.info.original_filename);
-        }else{
-            if(error){
-                console.log(error);  
-            }
+          setUrl(result.info.secure_url);
+          setName(result.info.original_filename);
+        } else {
+          if (error) {
+            console.log(error);
+          }
         }
       }
     );
@@ -25,7 +24,10 @@ const CloudinaryUpload = ({setUrl, setName}) => {
   };
 
   return (
-    <button className="bg-white text-black rounded-full p-4 font-bold" onClick={uploadImageWidget}>
+    <button
+      className="bg-white text-black rounded-full p-4 font-bold"
+      onClick={uploadImageWidget}
+    >
       Select Track
     </button>
   );
