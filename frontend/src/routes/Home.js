@@ -47,7 +47,7 @@ const Home = () => {
         <div className="content p-5 pt-0 overflow-auto">
           <Playlistview titleText="Focus Shift" cardsData={focusCardData} />
           <Playlistview
-            titleText="TuneWave Playlist"
+            titleText="CloudPlay Playlist"
             cardsData={focusCardData}
           />
           <Playlistview titleText="Sound Of India" cardsData={focusCardData} />
