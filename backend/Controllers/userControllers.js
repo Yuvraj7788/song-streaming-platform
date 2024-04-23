@@ -41,8 +41,9 @@ const registerUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    return res.status(400);
-    throw new Error("Failed To create the User");
+    return res.status(400).json({
+      error: "Failed To create the User",
+    });
   }
 });
 
@@ -60,8 +61,9 @@ const authUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(401);
-    throw new Error("Invalid Email Or Password");
+    return res.status(401).json({
+      error: "Invalid Email Or Password",
+    });
   }
 });
 

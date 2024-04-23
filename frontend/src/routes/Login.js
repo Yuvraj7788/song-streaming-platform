@@ -21,10 +21,10 @@ const LoginComponent = () => {
       const date = new Date();
       date.setDate(date.getDate() + 30);
       setCookie("token", token, { path: "/", expires: date });
-      alert("success");
+      alert("Login successfull!");
       navigate("/home");
     } else {
-      alert("Failure");
+      alert(response.error);
     }
   };
 
@@ -38,8 +38,8 @@ const LoginComponent = () => {
           To continue, Login to CloudPlay
         </div>
         <TextInput
-          label="Email id or Username"
-          placeholder="Email id or Username"
+          label="Email id"
+          placeholder="Email id"
           className="my-6"
           value={email}
           setValue={setEmail}
