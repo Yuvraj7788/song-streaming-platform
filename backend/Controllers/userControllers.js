@@ -6,7 +6,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, userName, password } = req.body;
 
   if (!firstName || !lastName || !email || !userName) {
-    return res.status(400).json({ error: "Every frild is required" });
+    return res.status(400).json({ error: "Every field is required" });
   }
 
   const userExist = await User.findOne({ email: email });
