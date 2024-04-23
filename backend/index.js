@@ -12,12 +12,11 @@ dotenv.config();
 const Port = process.env.PORT;
 
 const app = express();
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 
 // const __dirname = path.resolve();
-
-connectDB();
 
 pass();
 
@@ -51,5 +50,6 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(Port, () => {
+  connectDB();
   console.log(`The server Started listining on PORT ${Port}`);
 });
