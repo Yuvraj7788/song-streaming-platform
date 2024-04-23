@@ -27,7 +27,7 @@ const SignUpComponent = () => {
       "/auth/register",
       data
     );
-    if (response && ~response.error) {
+    if (response && !response.error) {
       const token = response.token;
       const date = new Date();
       date.setDate(date.getDate() + 30);
