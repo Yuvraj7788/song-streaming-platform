@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react";
 import { React, useContext, useState, useLayoutEffect, useRef } from "react";
 import { Howl, Howler } from "howler";
+import { Link, useNavigate } from "react-router-dom";
 import IconText from "../components/shared/IconText";
 import TextWithHover from "../components/shared/TextWithHover";
 import songContext from "../contexts/songContext";
@@ -17,6 +18,10 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
     isPaused,
     setIsPaused,
   } = useContext(songContext);
+
+  const deleteToken = () => {
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  };
 
   const firstUpdate = useRef(true);
 
@@ -126,6 +131,15 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
               <IconText
                 iconName={"icon-park-outline:like"}
                 displayText={"Liked Songs"}
+              />
+
+              <IconText
+                iconName={"mdi:logout"}
+                displayText={"Log Out"}
+                onClick={() => {
+                  deleteToken();
+                  window.location.href = "/login";
+                }}
               />
             </div>
           </div>

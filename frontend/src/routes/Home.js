@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import IconText from "../components/shared/IconText";
 import TextWithHover from "../components/shared/TextWithHover";
-
+import { Link, useNavigate } from "react-router-dom";
 const Home = () => {
   return (
     <div className="h-full w-full flex">
@@ -35,12 +35,11 @@ const Home = () => {
             <TextWithHover displayText={"Premium"} />
             <TextWithHover displayText={"Support"} />
             <TextWithHover displayText={"Download"} />
-            <TextWithHover displayText={"Sign Up"} />
           </div>
 
           <div className="flex pt-10 py-10 px-10 flex-col items-center justify-right w-1/2 h-full">
             <div className="bg-white flex  items-center justify-center font-semibold cursor-pointer h-2/3 px-8 rounded-full">
-              Log In
+              <Link to="/login">Log In</Link>
             </div>
           </div>
         </div>
