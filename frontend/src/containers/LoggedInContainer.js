@@ -106,11 +106,11 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
                 active={curActiveScreen === "search"}
                 targetLink={"/search"}
               />
-              <IconText
+              {/* <IconText
                 iconName={"lucide:library"}
                 displayText={"Your Library"}
                 active={curActiveScreen === "yourLibrary"}
-              />
+              /> */}
               <IconText
                 iconName={"mdi:music-box"}
                 displayText={"Library"}
