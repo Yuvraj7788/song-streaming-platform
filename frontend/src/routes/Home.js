@@ -14,16 +14,12 @@ const Home = () => {
         <div className="py-5">
           <IconText iconName={"iconamoon:home"} displayText={"Home"} active />
           <IconText iconName={"mingcute:search-line"} displayText={"Search"} />
-          <IconText iconName={"lucide:library"} displayText={"Your Library"} />
+          {/* <IconText iconName={"lucide:library"} displayText={"Your Library"} /> */}
         </div>
         <div className="pt-5">
           <IconText
             iconName={"octicon:plus-16"}
             displayText={"Create Playlist"}
-          />
-          <IconText
-            iconName={"icon-park-outline:like"}
-            displayText={"Liked Songs"}
           />
         </div>
       </div>

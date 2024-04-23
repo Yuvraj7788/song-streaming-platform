@@ -113,7 +113,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
               />
               <IconText
                 iconName={"mdi:music-box"}
-                displayText={"My Music"}
+                displayText={"Library"}
                 active={curActiveScreen === "myMusic"}
                 targetLink="/myMusic"
                 cd
