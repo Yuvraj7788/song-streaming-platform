@@ -32,7 +32,7 @@ app.get("*", (req, res) => {
       __dirname,
       "..",
       "frontend",
-      "custom-output-directory",
+      "build",
       "index.html"
     )
   );
