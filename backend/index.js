@@ -24,11 +24,7 @@ app.use("/auth", authentication);
 app.use("/song", song);
 app.use("/playlist", playlistRoutes);
 
-app.use(
-  express.static(
-    path.join(__dirname, "..", "/frontend/custom-output-directory")
-  )
-);
+app.use(express.static(path.join(__dirname, "..", "/frontend/build")));
 
 app.get("*", (req, res) => {
   res.sendFile(

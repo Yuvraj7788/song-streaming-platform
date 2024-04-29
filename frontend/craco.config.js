@@ -7,10 +7,7 @@ module.exports = {
   },
   webpack: {
     configure: (webpackConfig, { env, paths }) => {
-      webpackConfig.output.path = path.resolve(
-        __dirname,
-        "custom-output-directory"
-      );
+      webpackConfig.output.path = path.resolve(__dirname, "build");
       return webpackConfig;
     },
   },
