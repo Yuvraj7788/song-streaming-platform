@@ -36,7 +36,7 @@ pipeline {
         stage('Start container') {
             steps {
                 sh 'docker build -t app:latest .'
-                sh 'docker run -p 5000:5000 app:latest '
+                sh 'docker run -d -p 5000:5000 app:latest'
                 sh 'docker images ps'
             }
         }
