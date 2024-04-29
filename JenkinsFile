@@ -30,20 +30,20 @@ pipeline {
         stage('Prune Docker data') {
             steps {
                 sh 'docker system prune -a --volumes -f'
-                sh 'docker-compose down --remove-orphans -v'
+                
             }
         }
         stage('Start container') {
             steps {
-                sh 'docker-compose build'
-                sh 'docker-compose up -d'
-                sh 'docker-compose ps'
+                sh 'docker build -t app:latest .'
+                sh 'docker run -p 5000:5000 app:latest '
+                sh 'docker images ps'
             }
         }
     }
     post {
         always {
-            sh 'docker-compose ps -a'
+            sh 'docker images ps -a'
         }
     }
 }
