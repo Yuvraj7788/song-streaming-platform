@@ -9,7 +9,7 @@ const Home = () => {
         {/* this will be for leftpanel */}
         <div className="logo p-5  w-full flex justify-left">
           {/* <Icon icon="jam:music" color="white" width="100" /> */}
-          <h1 className="font-blue-500">CloudPlay</h1>
+          <h1 className="font-blue-500">CloudPlayer</h1>
         </div>
         <div className="py-5">
           <IconText iconName={"iconamoon:home"} displayText={"Home"} active />
