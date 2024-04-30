@@ -121,19 +121,6 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
             </div>
             <div className="pt-5">
               <IconText
-                iconName={"octicon:plus-16"}
-                displayText={"Create Playlist"}
-                onClick={() => {
-                  setCreatePlaylistModalOpen(true);
-                }}
-              />
-
-              <IconText
-                iconName={"icon-park-outline:like"}
-                displayText={"Liked Songs"}
-              />
-
-              <IconText
                 iconName={"mdi:logout"}
                 displayText={"Log Out"}
                 onClick={() => {
