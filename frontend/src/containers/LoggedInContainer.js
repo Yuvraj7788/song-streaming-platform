@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { React, useContext, useState, useLayoutEffect, useRef } from "react";
 import { Howl, Howler } from "howler";
-
+import { Link, useNavigate } from "react-router-dom";
 import IconText from "../components/shared/IconText";
 import TextWithHover from "../components/shared/TextWithHover";
 import songContext from "../contexts/songContext";
@@ -26,6 +26,8 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
   const firstUpdate = useRef(true);
 
   useLayoutEffect(() => {
+    // the following if statement will prevent the useeffect from running on first render.
+
     if (firstUpdate.current) {
       firstUpdate.current = false;
       return;
@@ -82,6 +84,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
       )}
 
       <div className={`${currentSong ? "h-9/10" : "h-full"} w-full flex`}>
+        {/* This first div will be the left panel */}
         <div className="h-full w-1/5 bg-black flex flex-col justify-between pb-10">
           <div>
             <div className="logo p-5  w-full flex justify-center items-center">
@@ -118,6 +121,19 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
             </div>
             <div className="pt-5">
               <IconText
+                iconName={"octicon:plus-16"}
+                displayText={"Create Playlist"}
+                onClick={() => {
+                  setCreatePlaylistModalOpen(true);
+                }}
+              />
+
+              <IconText
+                iconName={"icon-park-outline:like"}
+                displayText={"Liked Songs"}
+              />
+
+              <IconText
                 iconName={"mdi:logout"}
                 displayText={"Log Out"}
                 onClick={() => {
@@ -129,6 +145,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
           </div>
         </div>
 
+        {/* This second div will be the right part(main content) */}
         <div className="h-full w-4/5 bg-gray-700 overflow-auto">
           <div className="navbar w-full h-1/10 bg-black bg-opacity-30 flex items-center justify-end">
             <div className="w-2/3 flex h-full">
@@ -140,6 +157,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
               </div>
 
               <div className="w-1/3 flex justify-around h-full items-center">
+                {/* <TextWithHover displayText={"Upload Song"}  /> */}
                 <IconText
                   displayText={"Upload Song"}
                   active={curActiveScreen === "search"}
@@ -154,6 +172,8 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
           <div className="content p-5 pt-0 overflow-auto">{children}</div>
         </div>
       </div>
+
+      {/* this div is for current playing song */}
 
       {currentSong && (
         <div className="w-full h-1/10 bg-black bg-opacity-30 text-white flex items-center px-4">
@@ -204,6 +224,7 @@ const LoggedInContainer = ({ children, curActiveScreen }) => {
               />
             </div>
           </div>
+          {/* <div className="w-1/4 flex justify-end">hello</div> */}
         </div>
       )}
     </div>

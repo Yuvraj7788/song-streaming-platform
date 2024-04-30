@@ -16,6 +16,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// const __dirname = path.resolve();
+
 pass();
 
 app.use("/auth", authentication);
@@ -25,8 +27,20 @@ app.use("/playlist", playlistRoutes);
 app.use(express.static(path.join(__dirname, "..", "/frontend/build")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "..", "frontend", "build", "index.html"));
+  res.sendFile(
+    path.join(
+      __dirname,
+      "..",
+      "frontend",
+      "custom-output-directory",
+      "index.html"
+    )
+  );
 });
+
+// app.get('/',(req,res)=>{
+//     res.send("Working Properly");
+// });
 
 app.use(notFound);
 app.use(errorHandler);
